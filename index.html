@@ -84,22 +84,29 @@
 
     /* Letter Section */
     .letter-section {
-      background: linear-gradient(120deg, #ffdde1, #ee9ca7);
-      padding: 20px;
-      overflow-y: auto;
-    }
+  background: linear-gradient(120deg, #ffdde1, #ee9ca7);
+  padding: 40px 20px;        /* 🔥 top aur bottom dono taraf gap */
+  overflow-y: auto;
+  display: flex;
+  justify-content: flex-start; /* 🔥 content top se start ho */
+  align-items: center;         /* horizontally center */
+  flex-direction: column;
+  min-height: 100vh;           /* poora screen cover */
+  box-sizing: border-box;
+}
 
-    .letter-box {
-        background: #fff;
-        padding: 40px;
-        border-radius: 25px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-        width: 320px;       /* letter बड़ा रखने के लिए */
-        max-width: 95%;
-        margin: auto;
-        text-align: center;
-        animation: fadeIn 1.2s ease-in-out;
-    }
+.letter-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  width: 320px;
+  max-width: 95%;
+  margin: 40px 0;   /* 🔥 upar aur niche equal gap */
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
      
     .letter-box {
         position: relative;
@@ -231,7 +238,7 @@
   <!-- Letter Page -->
   <div class="letter-section" id="letterSection">
     <div class="letter-box">
-      <div class="heart-decor">❤️</div>
+      <div class="heart-decor">💖</div>
       <h2>Dear Sneha,</h2>
       <p>
 शायद तुम मुझे उतना न जानती हो,
@@ -448,4 +455,5 @@ else {
 </script>
 </body>
 </html>
+
 
