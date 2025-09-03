@@ -82,16 +82,16 @@
 
     /* Letter Section */
    .letter-section {
-  background: linear-gradient(120deg, #ffdde1, #ee9ca7);
-  padding: 40px 20px;
-  overflow-y: auto;
   display: none;
   flex-direction: column;
-  align-items: center;       /* horizontally center */
-  justify-content: flex-start; /* top se shuru hoga */
+  justify-content: flex-start;  /* ऊपर से शुरू होगा */
+  align-items: center;          /* बीच में horizontally */
+  padding: 60px 20px;           /* ऊपर-नीचे gap */
+  overflow-y: auto;
   min-height: 100vh;
   box-sizing: border-box;
 }
+
 
 
 
@@ -102,7 +102,7 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
   width: 320px;
   max-width: 95%;
-  margin: 60px 0;   /* upar-niche gap */
+  margin: 40px 0;   /* upar-niche gap */
   text-align: center;
   animation: fadeIn 1.2s ease-in-out;
 }
@@ -205,7 +205,7 @@
       dominant-baseline: middle;
     }
    @keyframes zoomOut {
-  from { transform: scale(2); opacity: 0; }
+  from { transform: scale(0.2); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
 }
 
@@ -336,24 +336,17 @@ lab की रोशनी से भी ज़्यादा खूबसू�
 }
 
  function showLetter() {
-  // Celebration music बंद करना
-  const music = document.getElementById("celebrationMusic");
-  if (music) {
-    music.pause();
-    music.currentTime = 0;    
-  }
-
-  // Celebration छुपाना
+  // Celebration बंद करना
   document.getElementById("celebration").style.display = "none";
 
   // Letter section दिखाना
   const letter = document.getElementById("letterSection");
   letter.style.display = "flex";
 
-  // पुरानी animation हटाओ और नई zoomOut लगाओ
+  // Letter-box zoom-out effect
   const letterBox = letter.querySelector(".letter-box");
-  letterBox.classList.remove("zoomOut");
-  void letterBox.offsetWidth; // reflow trick
+  letterBox.classList.remove("zoomOut"); // अगर पहले से लगी हो तो हटाओ
+  void letterBox.offsetWidth;            // reflow trick (animation दोबारा चले)
   letterBox.classList.add("zoomOut");
 
   // Letter music चलाना
@@ -362,6 +355,7 @@ lab की रोशनी से भी ज़्यादा खूबसू�
     letterMusic.play().catch(err => console.log("Autoplay blocked:", err));
   }
 }
+
 
   function sayNo() {
     const q = document.getElementById("question");
@@ -470,6 +464,7 @@ else {
 </script>
 </body>
 </html>
+
 
 
 
