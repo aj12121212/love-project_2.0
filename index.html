@@ -204,6 +204,20 @@
       text-anchor: middle;
       dominant-baseline: middle;
     }
+    @keyframes zoomIn {
+  from { 
+    transform: scale(0.2); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+.zoomIn {
+  animation: zoomIn 0.8s ease forwards;
+}
 
     @keyframes floatUp {
       0%   { transform: translateY(0) scale(1); opacity: 1; }
@@ -338,15 +352,20 @@ lab की रोशनी से भी ज़्यादा खूबसू�
   document.getElementById("celebration").style.display = "none";
 
   // Letter section दिखाना
-  const letter = document.getElementById("letterSection"); // ✅ ensure id matches
+  const letter = document.getElementById("letterSection");
   letter.style.display = "flex";
 
-  // Letter music चलाना (अगर है)
+  // Letter box zoom effect
+  const letterBox = letter.querySelector(".letter-box");
+  letterBox.classList.add("zoomIn");
+
+  // Letter music चलाना
   const letterMusic = document.getElementById("letterMusic");
   if (letterMusic) {
     letterMusic.play().catch(err => console.log("Autoplay blocked:", err));
   }
 }
+
 
 
   function sayNo() {
@@ -456,6 +475,7 @@ else {
 </script>
 </body>
 </html>
+
 
 
 
