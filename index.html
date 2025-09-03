@@ -5,16 +5,14 @@
   <title>Love Proposal</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #ffd6e8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      overflow: hidden;
-      margin: 0;
-    }
+  font-family: Arial, sans-serif;
+  background: #ffd6e8;
+  text-align: center;
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+}
+
 
     .container, .celebration, .letter-section {
       width: 100%;
@@ -85,15 +83,16 @@
     /* Letter Section */
     .letter-section {
   background: linear-gradient(120deg, #ffdde1, #ee9ca7);
-  padding: 40px 20px;        /* 🔥 top aur bottom dono taraf gap */
+  padding: 40px 20px;
   overflow-y: auto;
   display: flex;
-  justify-content: flex-start; /* 🔥 content top se start ho */
-  align-items: center;         /* horizontally center */
   flex-direction: column;
-  min-height: 100vh;           /* poora screen cover */
+  align-items: center;       /* horizontally center */
+  justify-content: flex-start; /* top se shuru hoga */
+  min-height: 100vh;
   box-sizing: border-box;
 }
+
 
 .letter-box {
   background: #fff;
@@ -102,10 +101,11 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
   width: 320px;
   max-width: 95%;
-  margin: 40px 0;   /* 🔥 upar aur niche equal gap */
+  margin: 40px 0;   /* upar-niche gap */
   text-align: center;
   animation: fadeIn 1.2s ease-in-out;
 }
+
 
      
     .letter-box {
@@ -455,5 +455,6 @@ else {
 </script>
 </body>
 </html>
+
 
 
