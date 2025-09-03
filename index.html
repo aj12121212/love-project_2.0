@@ -85,7 +85,7 @@
   background: linear-gradient(120deg, #ffdde1, #ee9ca7);
   padding: 40px 20px;
   overflow-y: auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;       /* horizontally center */
   justify-content: flex-start; /* top se shuru hoga */
@@ -204,20 +204,15 @@
       text-anchor: middle;
       dominant-baseline: middle;
     }
-    @keyframes zoomIn {
-  from { 
-    transform: scale(0.2); 
-    opacity: 0; 
-  }
-  to { 
-    transform: scale(1); 
-    opacity: 1; 
-  }
+   @keyframes zoomIn {
+  from { transform: scale(0.2); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
 .zoomIn {
   animation: zoomIn 0.8s ease forwards;
 }
+
 
     @keyframes floatUp {
       0%   { transform: translateY(0) scale(1); opacity: 1; }
@@ -340,7 +335,7 @@ lab की रोशनी से भी ज़्यादा खूबसू�
   if (!heartInterval)   heartInterval   = setInterval(() => createHeart(celebration), 1100);
 }
 
-  function showLetter() {
+ function showLetter() {
   // Celebration music बंद करना
   const music = document.getElementById("celebrationMusic");
   if (music) {
@@ -355,8 +350,10 @@ lab की रोशनी से भी ज़्यादा खूबसू�
   const letter = document.getElementById("letterSection");
   letter.style.display = "flex";
 
-  // Letter box zoom effect
+  // पहले किसी पुरानी animation class को हटा दो (अगर बार-बार click हो)
   const letterBox = letter.querySelector(".letter-box");
+  letterBox.classList.remove("zoomIn");  
+  void letterBox.offsetWidth; // reflow trick
   letterBox.classList.add("zoomIn");
 
   // Letter music चलाना
@@ -365,6 +362,7 @@ lab की रोशनी से भी ज़्यादा खूबसू�
     letterMusic.play().catch(err => console.log("Autoplay blocked:", err));
   }
 }
+
 
 
 
@@ -475,6 +473,7 @@ else {
 </script>
 </body>
 </html>
+
 
 
 
