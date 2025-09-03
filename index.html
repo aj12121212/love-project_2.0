@@ -102,9 +102,10 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
   width: 320px;
   max-width: 95%;
-  margin: 60px 0;   /* ✅ ऊपर और नीचे बराबर gap */
+  margin: 40px 0;   /* ऊपर और नीचे बराबर gap */
   text-align: center;
 }
+
 
     .letter-box h2 {
       text-align: center;
@@ -195,13 +196,13 @@
       text-anchor: middle;
       dominant-baseline: middle;
     }
-   @keyframes zoomOut {
-  from { transform: scale(0.2); opacity: 0; }
+   @keyframes zoomShrink {
+  from { transform: scale(2); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
 }
 
-.zoomOut {
-  animation: zoomOut 0.9s ease forwards; 
+.zoomShrink {
+  animation: zoomShrink 0.9s ease forwards;
 }
 
 
@@ -334,11 +335,11 @@ lab की रोशनी से भी ज़्यादा खूबसू�
   const letter = document.getElementById("letterSection");
   letter.style.display = "flex";
 
-  // Letter-box zoom-out effect
+  // Letter-box zoomShrink effect
   const letterBox = letter.querySelector(".letter-box");
-  letterBox.classList.remove("zoomOut"); // अगर पहले से लगी हो तो हटाओ
-  void letterBox.offsetWidth;            // reflow trick (animation दोबारा चले)
-  letterBox.classList.add("zoomOut");
+  letterBox.classList.remove("zoomShrink"); // अगर पहले से हो तो हटाओ
+  void letterBox.offsetWidth;               // reflow trick
+  letterBox.classList.add("zoomShrink");
 
   // Letter music चलाना
   const letterMusic = document.getElementById("letterMusic");
@@ -455,6 +456,7 @@ else {
 </script>
 </body>
 </html>
+
 
 
 
